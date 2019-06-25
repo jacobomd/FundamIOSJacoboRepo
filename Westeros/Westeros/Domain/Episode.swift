@@ -13,13 +13,52 @@ final class Episode {
     // propiedades
     let title:String
     let date:Date
-    let season:Season
+    weak var season:Season?
     
     // inicializadores
     internal init(title: String, date: Date, season: Season) {
         self.title = title
         self.date = date
         self.season = season
+    }
+    
+}
+
+extension Episode {
+    var proxyEquality: String {
+        return "\(title) \(season?.name)"
+    }
+    var proxyComparassion: String {
+        return "\(title) \(season?.name)"
+    }
+}
+
+extension Episode: Equatable {
+    static func == (lhs: Episode, rhs: Episode) -> Bool {
+        return lhs.proxyEquality == rhs.proxyEquality
+    }
+    
+}
+
+extension Episode: Hashable {
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+        hasher.combine(season?.name)
+    }
+    
+}
+
+extension Episode: Comparable {
+    static func < (lhs: Episode, rhs: Episode) -> Bool {
+        return lhs.proxyComparassion < rhs.proxyComparassion
+    }
+    
+}
+
+extension Episode: CustomStringConvertible {
+    var description: String {
+        return "\(date)"
     }
     
 }
