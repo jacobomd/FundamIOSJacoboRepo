@@ -22,9 +22,9 @@ class EpisodeTests: XCTestCase {
 
     override func setUp() {
         
-        season1 = Season(name: "Temporada 1", date: returnDate("19/06/2011"))
-        season2 = Season(name: "Temporada 2", date: returnDate("03/06/2012"))
-        season3 = Season(name: "Temporada 3", date: returnDate("09/06/2013"))
+        season1 = Season(name: "Temporada 1", date: returnDate("19/06/2011"), resumen: "1111")
+        season2 = Season(name: "Temporada 2", date: returnDate("03/06/2012"), resumen: "2222")
+        season3 = Season(name: "Temporada 3", date: returnDate("09/06/2013"), resumen: "3333")
         
         episode1Season1 = Episode(title: "Winter is comming", date: returnDate("17/04/2011"), season: season1)
         episode2Season1 = Episode(title: "The Kingsroad", date: returnDate("24/04/2011"), season: season1)

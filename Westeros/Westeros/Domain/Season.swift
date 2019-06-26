@@ -16,12 +16,14 @@ final class Season {
     // propiedades
     let name: String
     let date: Date
+    let resumen: String
     private var  _episodes: Episodes
 
     // inicializadores
-     init(name: String, date: Date) {
+    init(name: String, date: Date, resumen: String) {
         self.name = name
         self.date = date
+        self.resumen = resumen
         _episodes = Episodes()
     }
 }

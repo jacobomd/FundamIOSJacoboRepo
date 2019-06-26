@@ -16,7 +16,7 @@ final class Episode {
     weak var season:Season?
     
     // inicializadores
-    internal init(title: String, date: Date, season: Season) {
+     init(title: String, date: Date, season: Season) {
         self.title = title
         self.date = date
         self.season = season
