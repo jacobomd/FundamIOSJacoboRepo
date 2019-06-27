@@ -41,6 +41,10 @@ class HouseListViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     // MARK: - Table view data source
     // Data source provee de datos
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -121,3 +125,5 @@ extension HouseListViewController {
         return model[lastIndex]
     }
 }
+
+

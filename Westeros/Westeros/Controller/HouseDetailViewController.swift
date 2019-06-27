@@ -96,3 +96,5 @@ extension HouseDetailViewController: HouseListViewControllerDelegate {
         syncModelWithView()
     }
 }
+
+

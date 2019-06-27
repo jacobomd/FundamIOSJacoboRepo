@@ -19,13 +19,18 @@ protocol SeasonListViewControllerDelegate: class {
 }
 
 class SeasonListViewController: UITableViewController {
+    
+    enum Constants {
+        static let seasonKey: String = "SeasonKey"
+        static let lasSeasonKey = "LastSeasonKey"
+    }
+    
 
     // propiedades
     
     private let model: [Season]
     weak var delegate:SeasonListViewControllerDelegate?
-    
-    
+
     // inicializadores
     
     internal init(model: [Season]) {
@@ -41,7 +46,7 @@ class SeasonListViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 
     }
 
@@ -88,7 +93,26 @@ class SeasonListViewController: UITableViewController {
         // Enviamos la información de que se ha seleccionado una temporada
         delegate?.seasonListViewController(self, didSelectHouse: season)
     }
-
-        
     
 }
+
+extension SeasonListViewController {
+    
+    private func saveLastSelectedSeason(at index: Int) {
+        // Escribimos en UserDefaults
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(index, forKey: Constants.lasSeasonKey)
+        userDefaults.synchronize() // Por si acaso
+    }
+    
+    func lastSelectedSeason() -> Season {
+        // Leer de User Defaults
+        let userDefaults = UserDefaults.standard
+        let lastIndex = userDefaults.integer(forKey: Constants.lasSeasonKey) // 0 is the default
+        
+        // Devolvemos la temporada
+        return model[lastIndex]
+    }
+}
+
+
