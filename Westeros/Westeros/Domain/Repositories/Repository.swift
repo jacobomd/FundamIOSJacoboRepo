@@ -157,6 +157,15 @@ final class LocalFactory: HouseFactory {
         let episodio1Season8 = Episode(title: "Winterfell", date: returnDate("14/04/2019"), season: temporada8)
         let episodio2Season8 = Episode(title: "A Knight of the Seven Kingdoms", date: returnDate("21/04/2019"), season: temporada8)
         let episodio3Season8 = Episode(title: "The Long Night", date: returnDate("28/04/2019"), season: temporada8)
+        
+        temporada1.add(episodes: episodio1Season1, episodio2Season1, episodio3Season1)
+        temporada2.add(episodes: episodio1Season2, episodio2Season2, episodio3Season2)
+        temporada3.add(episodes: episodio1Season3, episodio2Season3, episodio3Season3)
+        temporada4.add(episodes: episodio1Season4, episodio2Season4, episodio3Season4)
+        temporada5.add(episodes: episodio1Season5, episodio2Season5, episodio3Season5)
+        temporada6.add(episodes: episodio1Season6, episodio2Season6, episodio3Season6)
+        temporada7.add(episodes: episodio1Season7, episodio2Season7, episodio3Season7)
+        temporada8.add(episodes: episodio1Season8, episodio2Season8, episodio3Season8)
 
         
         return [temporada1, temporada2, temporada3, temporada4, temporada5, temporada6, temporada7, temporada8].sorted()

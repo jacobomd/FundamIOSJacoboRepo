@@ -15,8 +15,7 @@ class SeasonDetailViewController: UIViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelNumEpisodes: UILabel!
-    @IBOutlet weak var labelDescription: UILabel!
-    
+    @IBOutlet weak var textDescription: UITextView!
     //Propierties
     private var model : Season
     
@@ -25,6 +24,7 @@ class SeasonDetailViewController: UIViewController {
     init(model: Season) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
+        title = model.name
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +35,7 @@ class SeasonDetailViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupUI()
         syncModelWithView()
     }
 
@@ -43,10 +44,39 @@ class SeasonDetailViewController: UIViewController {
 
 extension SeasonDetailViewController {
     private func syncModelWithView() {
-        labelName.text = "Temporada \(model.name)"
-        labelDate.text = "Fecha emision \(model.date.description)"
+        labelName.text = " \(model.name)"
+        labelDate.text = "Fecha emision: \(model.description)"
         labelNumEpisodes.text = "\(model.count) episodios emitidos"
-        labelDescription.text = "Resumen \(model.resumen)"
+        textDescription.text = "Resumen \(model.resumen)"
+    }
+}
+
+
+extension SeasonDetailViewController {
+    private func setupUI() {
+        
+        // Creo mi botón
+        let episodesButton = UIBarButtonItem(
+            title: "Episodes",
+            style: .plain,
+            target: self,
+            action: #selector(displayEpisodes)
+        )
+        
+        // Lo añado a la navigation bar
+        navigationItem.rightBarButtonItem = episodesButton
+    }
+
+    
+    @objc private func displayEpisodes() {
+        // Creo el EpisodeListVC
+        let episodeListViewController = EpisodeListViewController(model: model.sortedEpisodess)
+        
+        // Hago push
+        navigationController?.pushViewController(
+            episodeListViewController,
+            animated: true
+        )
     }
 }
 

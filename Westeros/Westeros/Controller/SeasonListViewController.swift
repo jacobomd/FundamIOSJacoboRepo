@@ -36,7 +36,7 @@ class SeasonListViewController: UITableViewController {
     internal init(model: [Season]) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
-        title = "Westeros"
+        title = "Seasons"
     }
     
     required init?(coder aDecoder: NSCoder) {

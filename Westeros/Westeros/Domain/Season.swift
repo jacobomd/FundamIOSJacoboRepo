@@ -53,7 +53,9 @@ extension Season: Comparable {
 
 extension Season: CustomStringConvertible {
     var description: String {
-        return "\(date)"
+        let formater = DateFormatter()
+        formater.dateFormat = "dd/MM/yyyy"
+        return formater.string(from: date)
     }
     
 }
@@ -63,9 +65,22 @@ extension Season {
        return _episodes.count
     }
     
+    var sortedEpisodess: [Episode] {
+        return _episodes.sorted()
+    }
+    
     func add (episode: Episode) {
         if self == episode.season{
             _episodes.insert(episode)
         }
     }
+    
+    func add(episodes: Episode...) {
+
+        for episode in episodes {
+            add(episode: episode)
+        }
+    }
 }
+
+

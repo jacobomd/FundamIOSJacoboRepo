@@ -32,6 +32,12 @@ class MemberListViewController: UIViewController {
         super.viewDidLoad()
         // OJO. No olvidarse de asignar el dataSource
         tableView.dataSource = self
+        subscribeToNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeNotifications()
     }
 }
 
@@ -58,6 +64,42 @@ extension MemberListViewController: UITableViewDataSource {
         
         // Devolver la celda
         return cell 
+    }
+}
+
+extension MemberListViewController {
+    private func subscribeToNotifications() {
+        let notificationCenter = NotificationCenter.default
+        // Nos damos de alta en las notifications
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(houseDidChange),
+            name: .houseDidNotificationName,
+            object: nil) // Objecto que envia la notification
+    }
+    
+    private func unsubscribeNotifications() {
+        // Nos damos de baja de las notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc private func houseDidChange(notification: Notification) {
+        // Averiguar la casa
+        guard let dictionary = notification.userInfo else {
+            return
+        }
+        
+        guard let house = dictionary[HouseListViewController.Constants.houseKey] as? House else {
+            return
+        }
+        
+        // Actualizar el modelo
+        //model = house
+        
+        // Sincronizar modelo y vista
+        //syncModelWithView()
+        
     }
 }
 

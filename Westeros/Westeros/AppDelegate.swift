@@ -10,15 +10,28 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
 
+
+
+class AppDelegate: UIResponder, UIApplicationDelegate{
+    
     var window: UIWindow?
+    
+    var houseListNavigation: UINavigationController?
+    var seasonListNavigation: UINavigationController?
+    var splitViewController: UISplitViewController?
+    var houseDetailNavigation: UINavigationController?
+    var seasonDetailNavigation: UINavigationController?
+    
 
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Lanzar la app
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
+        
+        
         
         // Crear el modelo
         let houses = Repository.local.houses
@@ -39,28 +52,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         seasonListViewController.delegate = seasonDetailViewController
        
         // Los envolvemos en Navigations
-        let houseListNavigation = houseListViewController.wrappedInNavigation()
-        let houseDetailNavigation = houseDetailViewController.wrappedInNavigation()
+        houseListNavigation = houseListViewController.wrappedInNavigation()
+        houseDetailNavigation = houseDetailViewController.wrappedInNavigation()
         
-        let seasonListNavigation = seasonListViewController.wrappedInNavigation()
-        let seasonDetailNavigation = seasonDetailViewController.wrappedInNavigation()
+        seasonListNavigation = seasonListViewController.wrappedInNavigation()
+        seasonDetailNavigation = seasonDetailViewController.wrappedInNavigation()
         
         // Creamos el tabBar
         let tabBarViewController = UITabBarController()
-        tabBarViewController.viewControllers = [houseListNavigation,seasonListNavigation]
+        tabBarViewController.viewControllers = [houseListNavigation, seasonListNavigation] as! [UIViewController]
+        tabBarViewController.delegate = self
+        
         
         
         // Creamos el split view controller
-        let splitViewController = UISplitViewController()
+        splitViewController = UISplitViewController()
         
-        splitViewController.viewControllers = [
+        splitViewController?.viewControllers = [
             tabBarViewController, // master
             houseDetailNavigation // detail
-        ]
+            ] as! [UIViewController]
+        
         
         // Asignamos el rootViewController
         window?.rootViewController = splitViewController
         
         return true
     }
+    
+    
 }
+
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController == houseListNavigation {
+            splitViewController?.viewControllers[1] = houseDetailNavigation as! UIViewController
+        }else if viewController == seasonListNavigation {
+            splitViewController?.viewControllers[1] = seasonDetailNavigation as! UIViewController
+        }
+    }
+}
+
+

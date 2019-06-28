@@ -25,7 +25,7 @@ class EpisodeListViewController: UITableViewController {
     init(model: [Episode]) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
-        title = "Westeros"
+        title = "Episodes"
     }
     
     

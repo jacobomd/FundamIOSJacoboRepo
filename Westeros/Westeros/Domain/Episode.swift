@@ -58,7 +58,9 @@ extension Episode: Comparable {
 
 extension Episode: CustomStringConvertible {
     var description: String {
-        return "\(date)"
+        let formater = DateFormatter()
+        formater.dateFormat = "dd/MM/yyyy"
+        return formater.string(from: date)
     }
     
 }
