@@ -92,6 +92,20 @@ class SeasonListViewController: UITableViewController {
         // Avisar al delegado.
         // Enviamos la información de que se ha seleccionado una temporada
         delegate?.seasonListViewController(self, didSelectHouse: season)
+        
+        
+        // Mandamos la misma información a través de las notificacions
+        let notificationCenter = NotificationCenter.default
+        
+        let dictionary = [Constants.seasonKey: season]
+        
+        let notification = Notification(
+            name: .seasonDidNotificationName,
+            object: self,
+            userInfo: dictionary
+        )
+        
+        notificationCenter.post(notification)
     }
     
 }

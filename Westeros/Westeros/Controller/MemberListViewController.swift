@@ -14,7 +14,7 @@ class MemberListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
-    let model: [Person]
+    var model: [Person]
     
     // MARK: Initialization
     init(model: [Person]) {
@@ -95,10 +95,10 @@ extension MemberListViewController {
         }
         
         // Actualizar el modelo
-        //model = house
+        model = house.sortedMembers
         
         // Sincronizar modelo y vista
-        //syncModelWithView()
+        tableView.reloadData()
         
     }
 }
