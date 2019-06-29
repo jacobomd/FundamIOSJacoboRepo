@@ -11,6 +11,8 @@
 		1103AAB022C14652006EBAFD /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103AAAF22C14652006EBAFD /* Episode.swift */; };
 		1103AAB222C14CD2006EBAFD /* SeasonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103AAB122C14CD2006EBAFD /* SeasonTests.swift */; };
 		1103AAB422C15CD2006EBAFD /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103AAB322C15CD2006EBAFD /* EpisodeTests.swift */; };
+		1163C60922C67F75008CF1F0 /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163C60722C67F75008CF1F0 /* MemberDetailViewController.swift */; };
+		1163C60A22C67F75008CF1F0 /* MemberDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1163C60822C67F75008CF1F0 /* MemberDetailViewController.xib */; };
 		11A30C1F22C2A179002E5FDD /* SeasonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A30C1D22C2A179002E5FDD /* SeasonListViewController.swift */; };
 		11A30C2022C2A179002E5FDD /* SeasonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A30C1E22C2A179002E5FDD /* SeasonListViewController.xib */; };
 		11A30C2322C2A1CE002E5FDD /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A30C2122C2A1CE002E5FDD /* EpisodeDetailViewController.swift */; };
@@ -57,6 +59,8 @@
 		1103AAAF22C14652006EBAFD /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		1103AAB122C14CD2006EBAFD /* SeasonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTests.swift; sourceTree = "<group>"; };
 		1103AAB322C15CD2006EBAFD /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
+		1163C60722C67F75008CF1F0 /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
+		1163C60822C67F75008CF1F0 /* MemberDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberDetailViewController.xib; sourceTree = "<group>"; };
 		11A30C1D22C2A179002E5FDD /* SeasonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonListViewController.swift; sourceTree = "<group>"; };
 		11A30C1E22C2A179002E5FDD /* SeasonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonListViewController.xib; sourceTree = "<group>"; };
 		11A30C2122C2A1CE002E5FDD /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				11A30C2622C2A222002E5FDD /* SeasonDetailViewController.xib */,
 				11A30C2922C2A25B002E5FDD /* EpisodeListViewController.swift */,
 				11A30C2A22C2A25B002E5FDD /* EpisodeListViewController.xib */,
+				1163C60722C67F75008CF1F0 /* MemberDetailViewController.swift */,
+				1163C60822C67F75008CF1F0 /* MemberDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 				ACEEB73822B96C9A00C54B3E /* WikiViewController.xib in Resources */,
 				11A30C2822C2A222002E5FDD /* SeasonDetailViewController.xib in Resources */,
 				11A30C2422C2A1CE002E5FDD /* EpisodeDetailViewController.xib in Resources */,
+				1163C60A22C67F75008CF1F0 /* MemberDetailViewController.xib in Resources */,
 				11A30C2022C2A179002E5FDD /* SeasonListViewController.xib in Resources */,
 				ACEEB73F22B9897C00C54B3E /* HouseListViewController.xib in Resources */,
 				ACEEB74322B999BB00C54B3E /* MemberListViewController.xib in Resources */,
@@ -337,6 +344,7 @@
 				ACEEB74222B999BB00C54B3E /* MemberListViewController.swift in Sources */,
 				1103AAB022C14652006EBAFD /* Episode.swift in Sources */,
 				AC25337A22B02CA6005737B5 /* House.swift in Sources */,
+				1163C60922C67F75008CF1F0 /* MemberDetailViewController.swift in Sources */,
 				11A30C2322C2A1CE002E5FDD /* EpisodeDetailViewController.swift in Sources */,
 				ACEEB73E22B9897C00C54B3E /* HouseListViewController.swift in Sources */,
 				11A30C2B22C2A25B002E5FDD /* EpisodeListViewController.swift in Sources */,

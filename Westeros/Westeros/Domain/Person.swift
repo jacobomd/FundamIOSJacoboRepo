@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 final class Person {
     let name: String
     let house: House
+    let image: UIImage
     private let _alias: String? // O tiene un nil, o tiene un string
     
     var alias: String {
@@ -21,10 +23,11 @@ final class Person {
         return "\(name) \(house.name)"
     }
     
-    init(name: String, alias: String? = nil, house: House) {
+    init(name: String, alias: String? = nil, house: House, image: UIImage) {
         self.name = name
         self._alias = alias 
         self.house = house
+        self.image = image
     }
 }
 

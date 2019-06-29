@@ -41,15 +41,8 @@ class EpisodeDetailViewController: UIViewController {
 extension EpisodeDetailViewController {
     private func syncModelWithView() {
         labelName.text = "Episodio \(model.title)"
-        labelDate.text = "Fecha emision \(model.date.description)"
-        labelSeasonName.text = "\(model.season?.name) episodios emitidos"
+        labelDate.text = "Fecha emision \(model.description)"
+        labelSeasonName.text = "Pertence a la \(model.season!.name) "
     }
 }
-extension EpisodeDetailViewController: EpisodeListViewControllerDelegate {
-    func episodeListViewController(_ viewController: EpisodeListViewController, didSelectHouse episode: Episode) {
-        model = episode
-        syncModelWithView()
-    }
-    
-    
-}
+

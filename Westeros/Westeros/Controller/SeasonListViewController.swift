@@ -47,7 +47,9 @@ class SeasonListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+    }
+    override func viewWillAppear(_ animated: Bool) {
+ 
     }
 
     // MARK: - Table view data source
@@ -69,13 +71,16 @@ class SeasonListViewController: UITableViewController {
         // Descubrir cuál es la temporada que tenemos que mostrar
         let season = model[indexPath.row]
         
-        // Crear una celda
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-            ??
+//        // Crear una celda
+       let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
+           ??
             UITableViewCell(style: .default, reuseIdentifier: cellId)
         
-        // Sicronizar modelo(temporada)-vista(celda)
+        // Sicronizar modelo(house)-vista(celda)
+        
         cell.textLabel?.text = season.name
+        cell.imageView?.image = season.image
+        
         
         // Devolver la celda
         return cell

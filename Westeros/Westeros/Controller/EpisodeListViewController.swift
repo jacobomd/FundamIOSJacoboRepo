@@ -8,19 +8,12 @@
 
 import UIKit
 
-protocol EpisodeListViewControllerDelegate: class {
-    func episodeListViewController(
-        _ viewController: EpisodeListViewController,
-        didSelectHouse episode: Episode
-    )
-}
 
 class EpisodeListViewController: UITableViewController {
     
     // propiedades
     private var model: [Episode]
-    weak var delegate:EpisodeListViewControllerDelegate?
-    
+  
     // inicializadores
     init(model: [Episode]) {
         self.model = model
@@ -36,12 +29,12 @@ class EpisodeListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        subscribeToNotifications()
+        //subscribeToNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeNotifications()
+        //unsubscribeNotifications()
     }
 
     // MARK: - Table view data source
@@ -83,7 +76,9 @@ class EpisodeListViewController: UITableViewController {
         
         // Avisar al delegado.
         // Enviamos la información de que se ha seleccionado un episodio
-        delegate?.episodeListViewController(self, didSelectHouse: episode)
+       // delegate?.episodeListViewController(self, didSelectHouse: episode)
+        
+        navigationController?.pushViewController(EpisodeDetailViewController(model: episode), animated: true)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -92,38 +87,38 @@ class EpisodeListViewController: UITableViewController {
     
     }
 
-    extension EpisodeListViewController {
-        private func subscribeToNotifications() {
-            let notificationCenter = NotificationCenter.default
-            // Nos damos de alta en las notifications
-            notificationCenter.addObserver(
-                self,
-                selector: #selector(seasonDidChange),
-                name: .seasonDidNotificationName,
-                object: nil) // Objecto que envia la notification
-        }
-        
-        private func unsubscribeNotifications() {
-            // Nos damos de baja de las notificaciones
-            let notificationCenter = NotificationCenter.default
-            notificationCenter.removeObserver(self)
-        }
-        
-        @objc private func seasonDidChange(notification: Notification) {
-            // Averiguar la casa
-            guard let dictionary = notification.userInfo else {
-                return
-            }
-            
-            guard let season = dictionary[SeasonListViewController.Constants.seasonKey] as? Season else {
-                return
-            }
-            
-            // Actualizar el modelo
-            model = season.sortedEpisodess
-            
-            // Sincronizar modelo y vista
-            tableView.reloadData()
-            
-        }
-}
+//    extension EpisodeListViewController {
+//        private func subscribeToNotifications() {
+//            let notificationCenter = NotificationCenter.default
+//            // Nos damos de alta en las notifications
+//            notificationCenter.addObserver(
+//                self,
+//                selector: #selector(seasonDidChange),
+//                name: .seasonDidNotificationName,
+//                object: nil) // Objecto que envia la notification
+//        }
+//
+//        private func unsubscribeNotifications() {
+//            // Nos damos de baja de las notificaciones
+//            let notificationCenter = NotificationCenter.default
+//            notificationCenter.removeObserver(self)
+//        }
+//
+//        @objc private func seasonDidChange(notification: Notification) {
+//            // Averiguar la casa
+//            guard let dictionary = notification.userInfo else {
+//                return
+//            }
+//
+//            guard let season = dictionary[SeasonListViewController.Constants.seasonKey] as? Season else {
+//                return
+//            }
+//
+//            // Actualizar el modelo
+//            model = season.sortedEpisodess
+//
+//            // Sincronizar modelo y vista
+//            tableView.reloadData()
+//
+//        }
+//}

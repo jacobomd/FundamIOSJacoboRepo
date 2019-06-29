@@ -11,7 +11,7 @@ import Foundation
 typealias Words = String
 typealias Members = Set<Person>
 
-final class House {
+ class House {
     let name: String
     let sigil: Sigil
     let words: Words
@@ -75,3 +75,19 @@ extension House: Comparable {
         return lhs.proxyForComparison < rhs.proxyForComparison
     }
 }
+
+
+// enumerado para buscar una casa en concrero
+extension House {
+    enum Houses: String {
+        case Lannister
+        case Stark
+        case Targaryen
+    
+        func house (name: Houses) -> String {
+            return name.rawValue
+        }
+    }
+}
+
+

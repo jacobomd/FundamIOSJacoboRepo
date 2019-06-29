@@ -8,6 +8,13 @@
 
 import UIKit
 
+//protocol MemberListViewControllerDelegate: class {
+//    func memberListViewController(
+//        _ viewController: MemberListViewController,
+//        didSelectHouse episode: Person
+//    )
+//}
+
 class MemberListViewController: UIViewController {
 
     // MARK: - Outlets
@@ -15,6 +22,7 @@ class MemberListViewController: UIViewController {
     
     // MARK: Properties
     var model: [Person]
+    //weak var delegate:MemberListViewControllerDelegate?
     
     // MARK: Initialization
     init(model: [Person]) {
@@ -32,6 +40,8 @@ class MemberListViewController: UIViewController {
         super.viewDidLoad()
         // OJO. No olvidarse de asignar el dataSource
         tableView.dataSource = self
+        tableView.delegate = self
+
         subscribeToNotifications()
     }
     
@@ -65,6 +75,18 @@ extension MemberListViewController: UITableViewDataSource {
         // Devolver la celda
         return cell 
     }
+    
+}
+
+extension MemberListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let member = model[indexPath.row]
+        let memberDetailViewController = MemberDetailViewController(model: member)
+        navigationController?.pushViewController(memberDetailViewController, animated: true)
+    }
+    
+    
 }
 
 extension MemberListViewController {

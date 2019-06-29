@@ -40,8 +40,8 @@ class PersonTests: XCTestCase {
         lannisterSigil = Sigil(description: "León Rampante", image: UIImage())
         lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Oye mi rugido", url: lannisterURL)
         
-        ned = Person(name: "Eddard", alias: "Ned", house: starkHouse)
-        tyrion = Person(name: "Tyrion", alias: "El gnomo", house: lannisterHouse)
+        ned = Person(name: "Eddard", alias: "Ned", house: starkHouse, image: UIImage ())
+        tyrion = Person(name: "Tyrion", alias: "El gnomo", house: lannisterHouse, image: UIImage ())
     }
 
     override func tearDown() {
@@ -53,7 +53,7 @@ class PersonTests: XCTestCase {
     
     func testCharacterExistenceWithoutAlias() {
         
-        let arya = Person(name: "Arya", house: starkHouse)
+        let arya = Person(name: "Arya", house: starkHouse, image: UIImage ())
         XCTAssertNotNil(arya)
         XCTAssertEqual(arya.alias, "")
     }
@@ -71,7 +71,7 @@ class PersonTests: XCTestCase {
         XCTAssertEqual(ned, ned)
         
         // 2. Igualdad
-        let eddard = Person(name: "Eddard", alias: "Ned", house: starkHouse)
+        let eddard = Person(name: "Eddard", alias: "Ned", house: starkHouse, image: UIImage ())
         XCTAssertEqual(ned, eddard)
         
         // 3. Desigualdad

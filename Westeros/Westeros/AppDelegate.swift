@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         let seasonListViewController = SeasonListViewController(model: seasons)
         let lastSelectedSeason = seasonListViewController.lastSelectedSeason()
         
+        
         let houseDetailViewController = HouseDetailViewController(model: lastSelectedHouse)
         let seasonDetailViewController = SeasonDetailViewController(model: lastSelectedSeason)
         

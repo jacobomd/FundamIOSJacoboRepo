@@ -64,12 +64,12 @@ final class LocalFactory: HouseFactory {
         )
         
         // Add characters
-        let robb = Person(name: "Robb", alias: "El Joven Lobo", house: starkHouse)
-        let arya = Person(name: "Arya", house: starkHouse)
-        let tyrion = Person(name: "Tyrion", alias: "El Enano", house: lannisterHouse)
-        let jaime = Person(name: "Jaime", alias: "El Matarreyes", house: lannisterHouse)
-        let cersei = Person(name: "Cersei", house: lannisterHouse)
-        let dani = Person(name: "Daenerys", alias: "La Madre de Dragones", house: targaryenHouse)
+        let robb = Person(name: "Robb", alias: "El Joven Lobo", house: starkHouse, image: UIImage(named: "robb")!)
+        let arya = Person(name: "Arya", house: starkHouse, image: UIImage(named: "arya")!)
+        let tyrion = Person(name: "Tyrion", alias: "El Enano", house: lannisterHouse, image: UIImage(named: "tyrion")!)
+        let jaime = Person(name: "Jaime", alias: "El Matarreyes", house: lannisterHouse, image: UIImage(named: "jaime")!)
+        let cersei = Person(name: "Cersei", house: lannisterHouse, image: UIImage(named: "cersei")!)
+        let dani = Person(name: "Daenerys", alias: "La Madre de Dragones", house: targaryenHouse, image: UIImage(named: "dani")!)
         
         starkHouse.add(persons: arya, robb)
     
@@ -100,21 +100,29 @@ final class LocalFactory: HouseFactory {
         
        // Añado las 8 temporadas que existen en la serie
         let temporada1 = Season(name: "Temporada 1", date: returnDate("19/06/2011"),
-                                resumen: "La historia está fragmentada en varios escenarios: lo que sucede en Desembarco del Rey, lo que sucede en el resto del continente, lo que sucede en el muro y lo que sucede allende los mares.")
+                                resumen: "La historia está fragmentada en varios escenarios: lo que sucede en Desembarco del Rey, lo que sucede en el resto del continente, lo que sucede en el muro y lo que sucede allende los mares."
+            , image: UIImage(named: "season1")!)
         let temporada2 = Season(name: "Temporada 2", date: returnDate("03/06/2012"),
-                                resumen: "Después del final de primera temporada, la guerra entre familias no ha hecho más que comenzar. En el Norte, Robb Stark se entera de la muerte de su padre Ned ....")
+                                resumen: "Después del final de primera temporada, la guerra entre familias no ha hecho más que comenzar. En el Norte, Robb Stark se entera de la muerte de su padre Ned ...."
+        , image: UIImage(named: "season2")!)
         let temporada3 = Season(name: "Temporada 3", date: returnDate("09/06/2013"),
-                                resumen: "La guerra por el Trono de Hierro es inminente. Pero no solo tratarán de conquistarlo los vivos... ya que entran en el juego los Caminantes Blancos...")
+                                resumen: "La guerra por el Trono de Hierro es inminente. Pero no solo tratarán de conquistarlo los vivos... ya que entran en el juego los Caminantes Blancos..."
+        , image: UIImage(named: "season3")!)
         let temporada4 = Season(name: "Temporada 4", date: returnDate("15/06/2014"),
-                                resumen: "Los Stark están más divididos que nunca. Sansa sigue atrapada en Desembarco del Rey a merced de los Lannister y de Joffrey ...")
+                                resumen: "Los Stark están más divididos que nunca. Sansa sigue atrapada en Desembarco del Rey a merced de los Lannister y de Joffrey ..."
+        , image: UIImage(named: "season4")!)
         let temporada5 = Season(name: "Temporada 5", date: returnDate("14/06/2015"),
-                                resumen: "Hay nuevo rey: Tommen, hermano de Joffrey e hijo de Cersei y Jaime Lannister. Para seguir manteniendo la alianza con la casa Tyrell, Tommen se casa con Margaery de la que se enamora ...")
+                                resumen: "Hay nuevo rey: Tommen, hermano de Joffrey e hijo de Cersei y Jaime Lannister. Para seguir manteniendo la alianza con la casa Tyrell, Tommen se casa con Margaery de la que se enamora ..."
+        , image: UIImage(named: "season5")!)
         let temporada6 = Season(name: "Temporada 6", date: returnDate("26/06/2016"),
-                                resumen: "¿Está Jon Snow muerto o no? Bueno, lo cierto es que sí. Pero ahí está Melisandre para solucionarlo todo y le resucita. Tras esta resurrección ...")
+                                resumen: "¿Está Jon Snow muerto o no? Bueno, lo cierto es que sí. Pero ahí está Melisandre para solucionarlo todo y le resucita. Tras esta resurrección ..."
+        , image: UIImage(named: "season6")!)
         let temporada7 = Season(name: "Temporada 7", date: returnDate("27/08/2017"),
-                                resumen: "Cersei se ha convertido en Reina y es ella la que se sienta en el Trono de Hierro. Pero pocos están de acuerdo. Por un lado, Daenerys ha regresado ...")
+                                resumen: "Cersei se ha convertido en Reina y es ella la que se sienta en el Trono de Hierro. Pero pocos están de acuerdo. Por un lado, Daenerys ha regresado ..."
+        , image: UIImage(named: "season7")!)
         let temporada8 = Season(name: "Temporada 8", date: returnDate("19/05/2019"),
-                                resumen: "La Gran Guerra ha llegado, el Muro ha caído y el ejército del Rey de la Noche marcha sobre Poniente. El final está aquí pero ...")
+                                resumen: "La Gran Guerra ha llegado, el Muro ha caído y el ejército del Rey de la Noche marcha sobre Poniente. El final está aquí pero ..."
+        , image: UIImage(named: "season8")!)
         
         // Añado todos los episodios de cada una de las temporadas
         

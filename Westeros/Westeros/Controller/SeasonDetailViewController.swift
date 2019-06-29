@@ -15,6 +15,7 @@ class SeasonDetailViewController: UIViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelNumEpisodes: UILabel!
+    @IBOutlet weak var imageSeason: UIImageView!
     @IBOutlet weak var textDescription: UITextView!
     //Propierties
     private var model : Season
@@ -47,6 +48,7 @@ extension SeasonDetailViewController {
         labelName.text = " \(model.name)"
         labelDate.text = "Fecha emision: \(model.description)"
         labelNumEpisodes.text = "\(model.count) episodios emitidos"
+        imageSeason.image = model.image
         textDescription.text = "Resumen \(model.resumen)"
     }
 }

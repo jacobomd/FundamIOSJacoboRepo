@@ -44,9 +44,9 @@ class HouseTests: XCTestCase {
             url: lannisterURL
         )
         
-        robb = Person(name: "Robb", alias: "El Joven Lobo", house: starkHouse)
-        arya = Person(name: "Arya", house: starkHouse)
-        tyrion = Person(name: "Tyrion", alias: "El gnomo", house: lannisterHouse)
+        robb = Person(name: "Robb", alias: "El Joven Lobo", house: starkHouse, image: UIImage ())
+        arya = Person(name: "Arya", house: starkHouse, image: UIImage ())
+        tyrion = Person(name: "Tyrion", alias: "El gnomo", house: lannisterHouse, image: UIImage ())
     }
 
     override func tearDown() {
@@ -90,6 +90,8 @@ class HouseTests: XCTestCase {
         
         // Igualdad
         let jinxed = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno", url: starkURL)
+        
+        
         XCTAssertEqual(starkHouse, jinxed)
         
         // Desigualdad
@@ -105,8 +107,17 @@ class HouseTests: XCTestCase {
         
         starkHouse.add(persons: robb, arya)
         XCTAssertEqual(starkHouse.count, 2)
+        
+        
 
         XCTAssertEqual(starkHouse.sortedMembers, [arya, robb])
         XCTAssertEqual(starkHouse.sortedMembers, starkHouse.sortedMembers.sorted())
+    }
+    
+    func testHouseFindByName() {
+        
+        let casaLannister = House.Houses.Lannister
+        XCTAssertEqual(casaLannister.house(name: .Lannister), "Lannister")
+        
     }
 }
