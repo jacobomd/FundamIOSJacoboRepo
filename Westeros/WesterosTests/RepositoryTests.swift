@@ -1,10 +1,4 @@
-//
-//  RepositoryTests.swift
-//  WesterosTests
-//
-//  Created by Alexandre Freire on 13/06/2019.
-//  Copyright © 2019 Alexandre Freire. All rights reserved.
-//
+
 
 import XCTest
 @testable import Westeros

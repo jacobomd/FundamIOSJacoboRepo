@@ -1,10 +1,4 @@
-//
-//  HouseTests.swift
-//  WesterosTests
-//
-//  Created by Alexandre Freire on 10/06/2019.
-//  Copyright © 2019 Alexandre Freire. All rights reserved.
-//
+
 
 import XCTest
 @testable import Westeros
@@ -114,6 +108,8 @@ class HouseTests: XCTestCase {
         XCTAssertEqual(starkHouse.sortedMembers, starkHouse.sortedMembers.sorted())
     }
     
+    
+    // test correspondiente a la enum de la casa house
     func testHouseFindByName() {
         
         let casaLannister = House.Houses.Lannister

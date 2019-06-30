@@ -1,10 +1,4 @@
-//
-//  SeasonListViewController.swift
-//  Westeros
-//
-//  Created by Jacobo Morales Diaz on 25/06/2019.
-//  Copyright © 2019 Alexandre Freire. All rights reserved.
-//
+
 
 import UIKit
 
@@ -71,7 +65,7 @@ class SeasonListViewController: UITableViewController {
         // Descubrir cuál es la temporada que tenemos que mostrar
         let season = model[indexPath.row]
         
-//        // Crear una celda
+       // Crear una celda
        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
            ??
             UITableViewCell(style: .default, reuseIdentifier: cellId)

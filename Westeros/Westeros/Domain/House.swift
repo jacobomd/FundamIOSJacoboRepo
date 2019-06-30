@@ -1,10 +1,4 @@
-//
-//  House.swift
-//  Westeros
-//
-//  Created by Alexandre Freire on 11/06/2019.
-//  Copyright © 2019 Alexandre Freire. All rights reserved.
-//
+
 
 import Foundation
 

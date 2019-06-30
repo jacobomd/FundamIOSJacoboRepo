@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  Westeros
-//
-//  Created by Alexandre Freire on 10/06/2019.
-//  Copyright © 2019 Alexandre Freire. All rights reserved.
-//
+
 
 // should - will - did
 import UIKit

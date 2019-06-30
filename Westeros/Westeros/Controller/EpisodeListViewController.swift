@@ -1,10 +1,4 @@
-//
-//  EpisodeListViewController.swift
-//  Westeros
-//
-//  Created by Jacobo Morales Diaz on 25/06/2019.
-//  Copyright © 2019 Alexandre Freire. All rights reserved.
-//
+
 
 import UIKit
 
@@ -29,16 +23,12 @@ class EpisodeListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        //subscribeToNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //unsubscribeNotifications()
     }
 
-    // MARK: - Table view data source
-    // Data source provee de datos
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -74,10 +64,6 @@ class EpisodeListViewController: UITableViewController {
         // Averiguar qué episodio se ha pulsado
         let episode = model[indexPath.row]
         
-        // Avisar al delegado.
-        // Enviamos la información de que se ha seleccionado un episodio
-       // delegate?.episodeListViewController(self, didSelectHouse: episode)
-        
         navigationController?.pushViewController(EpisodeDetailViewController(model: episode), animated: true)
     }
     
@@ -87,38 +73,4 @@ class EpisodeListViewController: UITableViewController {
     
     }
 
-//    extension EpisodeListViewController {
-//        private func subscribeToNotifications() {
-//            let notificationCenter = NotificationCenter.default
-//            // Nos damos de alta en las notifications
-//            notificationCenter.addObserver(
-//                self,
-//                selector: #selector(seasonDidChange),
-//                name: .seasonDidNotificationName,
-//                object: nil) // Objecto que envia la notification
-//        }
-//
-//        private func unsubscribeNotifications() {
-//            // Nos damos de baja de las notificaciones
-//            let notificationCenter = NotificationCenter.default
-//            notificationCenter.removeObserver(self)
-//        }
-//
-//        @objc private func seasonDidChange(notification: Notification) {
-//            // Averiguar la casa
-//            guard let dictionary = notification.userInfo else {
-//                return
-//            }
-//
-//            guard let season = dictionary[SeasonListViewController.Constants.seasonKey] as? Season else {
-//                return
-//            }
-//
-//            // Actualizar el modelo
-//            model = season.sortedEpisodess
-//
-//            // Sincronizar modelo y vista
-//            tableView.reloadData()
-//
-//        }
-//}
+

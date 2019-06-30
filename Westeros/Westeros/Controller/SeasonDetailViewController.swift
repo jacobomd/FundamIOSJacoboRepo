@@ -1,10 +1,4 @@
-//
-//  SeasonDetailViewController.swift
-//  Westeros
-//
-//  Created by Jacobo Morales Diaz on 25/06/2019.
-//  Copyright © 2019 Alexandre Freire. All rights reserved.
-//
+
 
 import UIKit
 

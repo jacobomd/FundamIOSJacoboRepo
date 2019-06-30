@@ -1,10 +1,3 @@
-//
-//  Episode.swift
-//  Westeros
-//
-//  Created by Jacobo Morales Diaz on 24/06/2019.
-//  Copyright © 2019 Alexandre Freire. All rights reserved.
-//
 
 import Foundation
 
