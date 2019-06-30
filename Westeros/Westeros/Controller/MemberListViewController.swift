@@ -10,7 +10,6 @@ class MemberListViewController: UIViewController {
     
     // MARK: Properties
     var model: [Person]
-    //weak var delegate:MemberListViewControllerDelegate?
     
     // MARK: Initialization
     init(model: [Person]) {

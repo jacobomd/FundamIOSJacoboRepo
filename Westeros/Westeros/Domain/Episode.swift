@@ -22,7 +22,7 @@ extension Episode {
         return "\(title) \(season?.name)"
     }
     var proxyComparassion: String {
-        return "\(title) \(season?.name)"
+        return "\(date)"
     }
 }
 
